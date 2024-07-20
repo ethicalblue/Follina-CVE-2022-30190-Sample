@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Copyright>ethical.blue Magazine</Copyright>
+    <ApplicationIcon>Images\ethical.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Files\JavaScript.txt" />
+    <None Remove="Files\RTF.txt" />
+    <None Remove="Images\ethical.ico" />
+    <None Remove="Images\scheme.png" />
+    <None Remove="Images\tube.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Files\JavaScript.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\RTF.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ethical.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ethical.ico" />
+    <Resource Include="Images\scheme.png" />
+    <Resource Include="Images\tube.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dark\" />
+  </ItemGroup>
+
+</Project>

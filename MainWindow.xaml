@@ -1,0 +1,147 @@
+﻿<Window x:Class="Follina_PoC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Follina_PoC"
+        mc:Ignorable="d"
+        Title="Follina_PoC" MinHeight="640" MinWidth="800" Height="640" Width="800"
+        Background="Black" Foreground="WhiteSmoke" FontSize="14" WindowStartupLocation="CenterScreen" Icon="/Images/ethical.ico">
+    <TabControl>
+        <TabItem>
+            <TabItem.Header>
+                Generator
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" MinHeight="54" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="/Images/tube.png" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Stretch="None" VerticalAlignment="Top" />
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="8" TextWrapping="Wrap">
+                .html payload URL
+                </TextBlock>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="8">
+                    <TextBox x:Name="TextPayloadURL"  Text="http://[::1]:8080/exploit" IsReadOnly="True" MinWidth="254" Margin="3" />
+                    <Button x:Name="ButtonCopyURL" Content="Copy" Click="ButtonCopyURL_Click" Margin="3" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="8">
+            Payload type
+                </TextBlock>
+
+                <RadioButton Margin="8" Grid.Row="4" Grid.Column="0" GroupName="payloadType" Content="MessageBox" IsChecked="True" />
+
+                <RadioButton IsEnabled="False" Margin="8" Grid.Row="5" Grid.Column="0" GroupName="payloadType" Content="Custom PowerShell" />
+
+                <TextBox FontFamily="Cascadia Code" Grid.Row="9" IsEnabled="False" TextWrapping="Wrap" Grid.Column="0" MinLines="3" MaxLines="3" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    This feature (Custom PowerShell) is not available in ethical mode.
+                </TextBox>
+
+                <Button x:Name="ButtonGenerate" Click="ButtonGenerate_Click" Grid.Row="11" Grid.Column="0" Margin="8" Content="Generate exploit" MaxWidth="184" />
+
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="8" TextWrapping="Wrap">
+            Local .html payload web server
+                </TextBlock>
+
+                <Button x:Name="ButtonServe" Click="ButtonServe_Click" Grid.Row="2" Grid.Column="1" Margin="8" Content="Serve payload" MaxWidth="184" />
+
+                <TextBlock x:Name="TextPayloadServingStatus" Grid.Row="3" Grid.RowSpan="2" Grid.Column="1" Margin="8" TextWrapping="Wrap">
+                Idle.
+                </TextBlock>
+
+                <TextBlock Grid.Row="5" Grid.Column="1" Grid.RowSpan="2" Margin="8" TextWrapping="Wrap">
+                This is <Span Foreground="Lime" FontFamily="Cascadia Code">CVE-2022-30190</Span> (so-called Follina) <LineBreak /> a Proof of Concept exploit builder <LineBreak />by ethical<Span Foreground="#00AAFF">.blue</Span> Magazine.
+                </TextBlock>
+
+                <TextBlock Grid.Row="10" Grid.Column="0"></TextBlock>
+
+                <TextBlock Grid.Row="12" Grid.Column="0" Margin="8" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">ethical<Span Foreground="#00AAFF">.blue</Span> Magazine <Span Foreground="#808080">//</Span> <Span Foreground="#0094FF">Cybersecurity</Span> <Span Foreground="#0DCAF0">clarified.</Span></TextBlock>
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                Mitigation
+            </TabItem.Header>
+            <TextBlock TextWrapping="Wrap" Margin="8">
+                <LineBreak /><LineBreak />
+                The <Span Foreground="Lime" FontFamily="Cascadia Code">CVE-2022-30190</Span> (so-called Follina) vulnerability can be mitigated by installing security updates.
+                <LineBreak /><LineBreak />
+                Security update for Windows 11 x64 can be downloaded from:<LineBreak />
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5014697" TextDecorations="None" Foreground="DodgerBlue">https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB5014697</Hyperlink>
+                <LineBreak /><LineBreak />
+                For other operating systems visit: <LineBreak />
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-30190" TextDecorations="None" Foreground="DodgerBlue">https://msrc.microsoft.com/update-guide/vulnerability/CVE-2022-30190</Hyperlink>
+            </TextBlock>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                Config Extractor
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="8">Select infected document</TextBlock>
+
+                <TextBox x:Name="TextBoxInfectedDocument" Grid.Row="1" Grid.Column="0" MinWidth="304" IsReadOnly="True" Margin="8" HorizontalAlignment="Stretch"></TextBox>
+                <Button x:Name="ButtonSelectInfectedDocument" Click="ButtonSelectInfectedDocument_Click" Margin="8" Grid.Row="1" Grid.Column="1">Browse ...</Button>
+                <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="TextBoxExtractedItems" FontWeight="Normal" FontFamily="Cascadia Code" IsReadOnly="True" TextWrapping="Wrap" Margin="8" AcceptsReturn="True" VerticalContentAlignment="Top" MinLines="5" VerticalScrollBarVisibility="Visible"></TextBox>
+            </Grid>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                Scheme
+            </TabItem.Header>
+            <Image Source="/Images/scheme.png" Stretch="Uniform" />
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                References
+            </TabItem.Header>
+            <TextBlock TextWrapping="Wrap" Margin="8">
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://twitter.com/nao_sec/status/1530196847679401984">https://twitter.com/nao_sec/status/1530196847679401984</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://gist.github.com/tothi/66290a42896a97920055e50128c9f040">https://gist.github.com/tothi/66290a42896a97920055e50128c9f040</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://github.com/chvancooten/follina.py">https://github.com/chvancooten/follina.py</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://github.com/JohnHammond/msdt-follina">https://github.com/JohnHammond/msdt-follina</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://github.com/MalwareTech/FollinaExtractor">https://github.com/MalwareTech/FollinaExtractor</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://sekurak.pl/krytyczna-podatnosc-0day-w-microsoft-office-po-otwarciu-dokumentu-mozna-przejac-komputer-cve-2022-30190-follina/">https://sekurak.pl/krytyczna-podatnosc-0day-w-microsoft-office-po-otwarciu-dokumentu-mozna-przejac-komputer-cve-2022-30190-follina/</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://avlab.pl/follina-exploit-0-day-w-microsoft-office-z-bialorusi/">https://avlab.pl/follina-exploit-0-day-w-microsoft-office-z-bialorusi/</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+                <Hyperlink TextDecorations="None" RequestNavigate="Hyperlink_RequestNavigate" Foreground="DodgerBlue" NavigateUri="https://www.virustotal.com/gui/file/4a24048f81afbe9fb62e7a6a49adbd1faf41f266b5f9feecdceb567aec096784/detection">https://www.virustotal.com/gui/file/4a24048f81afbe9fb62e7a6a49adbd1faf41f266b5f9feecdceb567aec096784/detection</Hyperlink> [access: 2022-06-25]
+                <LineBreak /><LineBreak />
+            </TextBlock>
+        </TabItem>
+    </TabControl>
+</Window>
